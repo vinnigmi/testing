@@ -1,0 +1,244 @@
+.result-page {
+    width: min(1180px, calc(100% - 40px));
+    margin: 52px auto 40px;
+    text-align: center;
+}
+
+.result-header {
+    margin-bottom: 28px;
+}
+
+.result-header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.score-card {
+    position: relative;
+    width: min(760px, 100%);
+    margin: 0 auto 32px;
+    padding: 34px 28px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 3px solid rgba(255, 216, 77, 0.6);
+    border-radius: 34px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.score-card::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 216, 77, 0.28);
+    border-radius: 50%;
+    right: -100px;
+    top: -120px;
+}
+
+.record-badge {
+    display: none;
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    margin: 0 auto 18px;
+    background: var(--yellow);
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 18px;
+    box-shadow: 0 5px 0 var(--yellow-dark);
+}
+
+.record-badge.show {
+    display: block;
+    animation: badgePop 0.45s ease both;
+}
+
+.score-circle {
+    position: relative;
+    z-index: 2;
+    width: 190px;
+    height: 190px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background:
+            radial-gradient(circle, white 55%, transparent 56%),
+            conic-gradient(var(--orange) 0deg, var(--yellow) 180deg, #ffeeb0 360deg);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 9px 0 var(--yellow-dark), var(--soft-shadow);
+}
+
+.score-circle strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 54px;
+    line-height: 1;
+}
+
+.score-circle span {
+    display: block;
+    font-size: 18px;
+    color: var(--muted);
+    margin-top: -46px;
+}
+
+.score-card h2 {
+    position: relative;
+    z-index: 2;
+    font-family: 'Baloo 2', cursive;
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.score-card p {
+    position: relative;
+    z-index: 2;
+    font-size: 23px;
+    color: var(--muted);
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 3px solid rgba(255, 216, 77, 0.55);
+    border-radius: 30px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.comparison-card h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.image-box {
+    height: 360px;
+    background:
+            linear-gradient(45deg, rgba(255, 216, 77, 0.08) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(255, 216, 77, 0.08) 25%, transparent 25%),
+            #FFF9E6;
+    background-size: 32px 32px;
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    border: 3px dashed rgba(217, 169, 0, 0.45);
+    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.image-box img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.12));
+}
+
+.drawing-box img {
+    max-width: 94%;
+    max-height: 94%;
+    background: white;
+    border-radius: 16px;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.stat-box {
+    min-width: 170px;
+    background: #FFF4BD;
+    border-radius: 20px;
+    padding: 18px 22px;
+    box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.08);
+}
+
+.stat-box span {
+    display: block;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.stat-box strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 34px;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+@keyframes badgePop {
+    from {
+        opacity: 0;
+        transform: scale(0.7) rotate(-4deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (max-width: 850px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-box {
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .result-page {
+        width: calc(100% - 24px);
+        margin-top: 34px;
+    }
+
+    .score-circle {
+        width: 160px;
+        height: 160px;
+    }
+
+    .score-circle strong {
+        font-size: 44px;
+    }
+
+    .score-card h2 {
+        font-size: 32px;
+    }
+
+    .image-box {
+        height: 250px;
+    }
+
+    .stat-box {
+        width: 100%;
+    }
+}

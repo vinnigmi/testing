@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Difficulty</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/difficulty.css">
+
+    <script src="js/global.js" defer></script>
+    <script src="js/difficulty.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Memory Drawing Game Logo">
+    </a>
+
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="instructions.html">How to Play</a>
+    </nav>
+</header>
+
+<main class="difficulty-page page-animation">
+
+    <section class="difficulty-intro">
+        <p class="eyebrow">Choose your challenge</p>
+        <h1>Select Your Game Mode</h1>
+        <p class="subtitle">
+            Each mode changes how long you can study the image and how much time you get to draw it.
+        </p>
+    </section>
+
+    <section class="difficulty-container">
+
+        <article class="difficulty-card easy" onclick="selectDifficulty('easy')">
+            <div class="difficulty-icon">😊</div>
+            <h2>Easy</h2>
+            <p>Perfect for warming up and learning the game.</p>
+
+            <div class="mode-info">
+                <span>Study Time: 6s</span>
+                <span>Draw Time: 20s</span>
+            </div>
+
+            <strong>Relaxed Mode</strong>
+        </article>
+
+        <article class="difficulty-card normal featured" onclick="selectDifficulty('normal')">
+            <div class="recommended-badge">Recommended</div>
+            <div class="difficulty-icon">🎯</div>
+            <h2>Normal</h2>
+            <p>A balanced challenge for most players.</p>
+
+            <div class="mode-info">
+                <span>Study Time: 4s</span>
+                <span>Draw Time: 15s</span>
+            </div>
+
+            <strong>Classic Mode</strong>
+        </article>
+
+        <article class="difficulty-card hard" onclick="selectDifficulty('hard')">
+            <div class="difficulty-icon">🔥</div>
+            <h2>Hard</h2>
+            <p>Fast, intense, and made for brave players.</p>
+
+            <div class="mode-info">
+                <span>Study Time: 2s</span>
+                <span>Draw Time: 10s</span>
+            </div>
+
+            <strong>Challenge Mode</strong>
+        </article>
+
+    </section>
+
+    <p class="tip-text">
+        Tip: Start with Normal first, then try Hard when you want a real memory challenge.
+    </p>
+
+</main>
+
+<footer class="site-footer">
+    <p>Web Technologies Coursework · Made by Ye Wint Thu</p>
+</footer>
+
+</body>
+</html>

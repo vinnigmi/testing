@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Stage</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/drawing.css">
+
+    <script src="js/global.js" defer></script>
+    <script src="js/drawing.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Memory Drawing Game Logo">
+    </a>
+
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="instructions.html">How to Play</a>
+    </nav>
+</header>
+
+<main class="drawing-page page-animation">
+
+    <section class="drawing-header">
+        <p class="eyebrow">Drawing Stage</p>
+        <h1>Draw From Memory</h1>
+        <p class="subtitle">
+            Recreate the image before the timer ends. Tools stay close to the canvas on every device.
+        </p>
+    </section>
+
+    <section class="drawing-layout">
+
+        <aside class="tool-panel">
+            <h2>Studio Tools</h2>
+
+            <div class="tool-grid">
+                <button class="tool-btn active" id="brushBtn" title="Brush">
+                    <span class="tool-icon brush-icon"></span>
+                    <small>Brush</small>
+                </button>
+
+                <button class="tool-btn" id="eraserBtn" title="Eraser">
+                    <span class="tool-icon eraser-icon"></span>
+                    <small>Eraser</small>
+                </button>
+
+                <button class="tool-btn" id="lineBtn" title="Line">
+                    <span class="tool-icon line-icon"></span>
+                    <small>Line</small>
+                </button>
+
+                <button class="tool-btn" id="rectBtn" title="Rectangle">
+                    <span class="tool-icon rectangle-icon"></span>
+                    <small>Box</small>
+                </button>
+
+                <button class="tool-btn" id="circleBtn" title="Circle">
+                    <span class="tool-icon circle-icon"></span>
+                    <small>Circle</small>
+                </button>
+            </div>
+
+            <div class="control-row">
+                <label for="colorPicker">Colour</label>
+                <input type="color" id="colorPicker" value="#202020">
+            </div>
+
+            <div class="control-row">
+                <label for="brushSize">Size</label>
+                <input type="range" id="brushSize" min="2" max="30" value="6">
+                <strong id="brushSizeText">6</strong>
+            </div>
+
+            <div class="action-grid">
+                <button class="small-action" id="gridBtn">Grid</button>
+                <button class="small-action" id="undoBtn">Undo</button>
+                <button class="small-action" id="downloadBtn">Save</button>
+                <button class="small-action danger" id="clearBtn">Clear</button>
+                <button class="submit-btn" id="submitDrawing">Submit</button>
+            </div>
+        </aside>
+
+        <section class="canvas-card">
+            <div class="drawing-topbar">
+                <div class="timer-box">
+                    <span>Time Left</span>
+                    <strong id="drawTimer">15</strong>
+                </div>
+
+                <p id="drawingMessage">Shortcuts: B Brush · E Eraser · Ctrl/Cmd+Z Undo</p>
+            </div>
+
+            <div class="canvas-wrap" id="canvasWrap">
+                <canvas id="drawingCanvas" width="760" height="460"></canvas>
+                <div id="cursorDot"></div>
+            </div>
+        </section>
+
+        <aside class="goal-panel">
+            <h2>Goal</h2>
+            <p>Your drawing will be compared with the original image after you submit.</p>
+
+            <div class="goal-card">
+                <span>Current Mode</span>
+                <strong id="modeText">Normal</strong>
+            </div>
+
+            <div class="goal-card">
+                <span>Best Score</span>
+                <strong id="bestScoreText">0%</strong>
+            </div>
+
+            <div class="shortcut-card">
+                <h3>Shortcuts</h3>
+                <p>B = Brush</p>
+                <p>E = Eraser</p>
+                <p>L = Line</p>
+                <p>R = Rectangle</p>
+                <p>C = Circle</p>
+                <p>Ctrl/Cmd+Z = Undo</p>
+            </div>
+        </aside>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>Web Technologies Coursework · Made by Ye Wint Thu</p>
+</footer>
+
+</body>
+</html>

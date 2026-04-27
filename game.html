@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorise Image</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/game.css">
+
+    <script src="js/global.js" defer></script>
+    <script src="js/game.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Memory Drawing Game Logo">
+    </a>
+
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="instructions.html">How to Play</a>
+    </nav>
+</header>
+
+<main class="game-page page-animation">
+
+    <section class="round-header">
+        <p class="eyebrow">Memory Round</p>
+        <h1>Study Fast. Draw Smart.</h1>
+        <p class="subtitle">
+            Focus on the outline, position, colour, and small details before the image disappears.
+        </p>
+    </section>
+
+    <section class="round-layout">
+
+        <aside class="mission-panel">
+            <h2>Your Mission</h2>
+
+            <div class="mission-step active">
+                <span>1</span>
+                <p>Memorise the image</p>
+            </div>
+
+            <div class="mission-step">
+                <span>2</span>
+                <p>Draw it from memory</p>
+            </div>
+
+            <div class="mission-step">
+                <span>3</span>
+                <p>Beat your best score</p>
+            </div>
+
+            <div class="difficulty-pill" id="difficultyLabel">Normal Mode</div>
+        </aside>
+
+        <section class="memory-card">
+            <div class="timer-ring">
+                <span>Time</span>
+                <strong id="timerText">5</strong>
+            </div>
+
+            <div class="image-stage" id="imageStage">
+                <img id="memoryImage" src="img/circle.png" alt="Image to memorise">
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <p id="roundMessage" class="round-message">Get ready...</p>
+        </section>
+
+        <aside class="tip-panel">
+            <h2>Memory Tips</h2>
+            <p id="memoryTip">Look for the biggest shape first.</p>
+
+            <div class="mini-stat">
+                <span>Best</span>
+                <strong id="bestScoreMini">0%</strong>
+            </div>
+        </aside>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>Web Technologies Coursework · Made by Ye Wint Thu</p>
+</footer>
+
+</body>
+</html>

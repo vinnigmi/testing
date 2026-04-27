@@ -1,0 +1,646 @@
+.drawing-page {
+    width: min(1220px, calc(100% - 40px));
+    margin: 48px auto 40px;
+    text-align: center;
+}
+
+.drawing-header {
+    margin-bottom: 30px;
+}
+
+.drawing-header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 23px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.drawing-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr 230px;
+    gap: 22px;
+    align-items: start;
+}
+
+.tool-panel,
+.goal-panel,
+.canvas-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 3px solid rgba(255, 216, 77, 0.55);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.tool-panel,
+.goal-panel {
+    padding: 22px;
+}
+
+.tool-panel h2,
+.goal-panel h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.tool-btn {
+    min-height: 88px;
+    border: none;
+    border-radius: 18px;
+    padding: 12px;
+    background: #FFF4BD;
+    color: var(--dark);
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tool-btn:hover {
+    transform: translateY(-3px);
+    background: #FFEFB0;
+}
+
+.tool-btn.active {
+    background: var(--yellow);
+    box-shadow: 0 5px 0 var(--yellow-dark);
+}
+
+.tool-btn small {
+    font-family: 'Baloo 2', cursive;
+    font-size: 15px;
+}
+
+.tool-icon {
+    width: 36px;
+    height: 36px;
+    display: block;
+    position: relative;
+}
+
+.brush-icon::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 34px;
+    background: var(--dark);
+    border-radius: 8px;
+    transform: rotate(35deg);
+    left: 12px;
+    top: 0;
+}
+
+.brush-icon::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 11px;
+    background: var(--orange);
+    border-radius: 999px;
+    bottom: 1px;
+    left: 5px;
+    transform: rotate(35deg);
+}
+
+.eraser-icon::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 21px;
+    background: #ffb3c1;
+    border-radius: 6px;
+    transform: rotate(-25deg);
+    top: 8px;
+    left: 1px;
+}
+
+.eraser-icon::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 21px;
+    background: #ffffff;
+    border-radius: 4px;
+    transform: rotate(-25deg);
+    top: 8px;
+    right: 1px;
+    opacity: 0.75;
+}
+
+.line-icon::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background: var(--dark);
+    border-radius: 999px;
+    transform: rotate(-35deg);
+    top: 16px;
+    left: -2px;
+}
+
+.rectangle-icon::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 24px;
+    border: 5px solid var(--dark);
+    border-radius: 6px;
+    top: 4px;
+    left: 1px;
+}
+
+.circle-icon::before {
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    border: 5px solid var(--dark);
+    border-radius: 50%;
+    top: 1px;
+    left: 2px;
+}
+
+.tool-btn.active .tool-icon {
+    animation: toolPop 0.25s ease;
+}
+
+@keyframes toolPop {
+    50% {
+        transform: scale(1.18) rotate(-4deg);
+    }
+}
+
+.control-row {
+    display: grid;
+    grid-template-columns: 68px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    text-align: left;
+}
+
+.control-row label {
+    font-family: 'Baloo 2', cursive;
+    font-size: 17px;
+}
+
+.control-row strong {
+    min-width: 32px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 22px;
+    text-align: center;
+}
+
+input[type="color"] {
+    width: 100%;
+    height: 42px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    margin-top: 18px;
+}
+
+.small-action {
+    border: none;
+    border-radius: 15px;
+    padding: 12px 10px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 16px;
+    cursor: pointer;
+    background: var(--white);
+    color: var(--dark);
+    box-shadow: var(--soft-shadow);
+    transition: 0.2s ease;
+}
+
+.small-action:hover {
+    transform: translateY(-2px);
+    background: #fff3b8;
+}
+
+.small-action.danger {
+    background: #FFD0D0;
+}
+
+.submit-btn {
+    grid-column: 1 / -1;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 18px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Baloo 2', cursive;
+    font-size: 22px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 7px 0 var(--yellow-dark);
+    transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(4px);
+    box-shadow: 0 3px 0 var(--yellow-dark);
+}
+
+.canvas-card {
+    padding: 24px;
+}
+
+.drawing-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.timer-box {
+    min-width: 120px;
+    background: var(--yellow);
+    border-radius: 18px;
+    padding: 12px 18px;
+    box-shadow: 0 5px 0 var(--yellow-dark);
+}
+
+.timer-box span {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.timer-box strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 38px;
+    line-height: 1;
+}
+
+.timer-warning {
+    animation: drawTimerWarning 0.45s ease-in-out infinite;
+}
+
+#drawingMessage {
+    flex: 1;
+    background: #FFF9E6;
+    border-radius: 18px;
+    padding: 16px;
+    font-size: 22px;
+    color: var(--muted);
+}
+
+.canvas-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    border-radius: 24px;
+}
+
+.canvas-wrap.grid-on::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 24px;
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+#drawingCanvas {
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    aspect-ratio: 760 / 460;
+    background: white;
+    border-radius: 24px;
+    border: 3px dashed rgba(217, 169, 0, 0.45);
+    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.05), var(--soft-shadow);
+    cursor: none;
+    touch-action: none;
+}
+
+.goal-panel p {
+    font-size: 20px;
+    line-height: 1.35;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.goal-card {
+    background: #FFF4BD;
+    border-radius: 18px;
+    padding: 17px;
+    margin-bottom: 14px;
+    box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.08);
+}
+
+.goal-card span {
+    display: block;
+    font-size: 17px;
+    color: var(--muted);
+}
+
+.goal-card strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 30px;
+}
+
+.shortcut-card {
+    background: #FFF9E6;
+    border-radius: 18px;
+    padding: 17px;
+    margin-top: 18px;
+    text-align: left;
+}
+
+.shortcut-card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 22px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.shortcut-card p {
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+#cursorDot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: none;
+    background: transparent;
+    transition: 0.05s linear;
+}
+
+.cursor-brush {
+    border: 2px solid black;
+    background: transparent;
+}
+
+.cursor-eraser {
+    border: 2px dashed #ff4d4d;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.cursor-shape {
+    border: 2px solid #333;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+@keyframes drawTimerWarning {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+        filter: brightness(1.08);
+    }
+}
+
+@media (max-width: 1100px) {
+    .drawing-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .canvas-card {
+        order: 1;
+        width: min(860px, 100%);
+        margin: 0 auto;
+    }
+
+    .tool-panel {
+        order: 2;
+        width: min(860px, 100%);
+        margin: 0 auto;
+    }
+
+    .goal-panel {
+        order: 3;
+        width: min(860px, 100%);
+        margin: 0 auto;
+    }
+
+    .tool-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .site-footer {
+        display: none;
+    }
+
+    .drawing-page {
+        width: calc(100% - 16px);
+        margin-top: 24px;
+        padding-bottom: 230px;
+    }
+
+    .drawing-header {
+        margin-bottom: 14px;
+    }
+
+    .drawing-header h1 {
+        font-size: 38px;
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .drawing-layout {
+        display: block;
+    }
+
+    .canvas-card {
+        padding: 12px;
+        border-radius: 22px;
+    }
+
+    .drawing-topbar {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .timer-box {
+        min-width: 92px;
+        padding: 9px 10px;
+        border-radius: 16px;
+    }
+
+    .timer-box span {
+        font-size: 13px;
+    }
+
+    .timer-box strong {
+        font-size: 32px;
+    }
+
+    #drawingMessage {
+        font-size: 17px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    .canvas-wrap {
+        max-width: 100%;
+    }
+
+    #drawingCanvas {
+        height: min(58vh, 430px);
+        aspect-ratio: auto;
+        border-radius: 18px;
+    }
+
+    .tool-panel {
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        bottom: env(safe-area-inset-bottom, 0px);
+        z-index: 50;
+        padding: 10px;
+        border-radius: 22px 22px 0 0;
+        box-shadow: 0 -10px 35px rgba(32, 32, 32, 0.22);
+        max-height: 220px;
+        overflow-y: auto;
+    }
+
+    .tool-panel h2 {
+        display: none;
+    }
+
+    .tool-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 7px;
+    }
+
+    .tool-btn {
+        min-height: 56px;
+        padding: 6px 3px;
+        border-radius: 14px;
+        gap: 3px;
+    }
+
+    .tool-icon {
+        width: 25px;
+        height: 25px;
+        transform: scale(0.72);
+    }
+
+    .tool-btn small {
+        font-size: 12px;
+    }
+
+    .control-row {
+        grid-template-columns: 44px 1fr 28px;
+        gap: 7px;
+        margin-top: 8px;
+    }
+
+    .control-row label {
+        font-size: 14px;
+    }
+
+    .control-row strong {
+        font-size: 17px;
+    }
+
+    input[type="color"] {
+        height: 32px;
+    }
+
+    .action-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .small-action,
+    .submit-btn {
+        min-height: 38px;
+        padding: 7px 3px;
+        border-radius: 11px;
+        font-size: 12px;
+        box-shadow: var(--soft-shadow);
+    }
+
+    .submit-btn {
+        grid-column: auto;
+        font-size: 12px;
+        box-shadow: 0 3px 0 var(--yellow-dark);
+    }
+
+    .goal-panel {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .drawing-page {
+        padding-bottom: 255px;
+    }
+
+    #drawingCanvas {
+        height: min(52vh, 390px);
+    }
+
+    .action-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .submit-btn {
+        grid-column: 1 / -1;
+    }
+}

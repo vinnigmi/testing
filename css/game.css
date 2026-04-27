@@ -1,0 +1,369 @@
+.game-page {
+    width: min(1180px, calc(100% - 40px));
+    margin: 56px auto 40px;
+    text-align: center;
+}
+
+.round-header {
+    margin-bottom: 34px;
+}
+
+.round-header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(46px, 6vw, 76px);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.round-layout {
+    display: grid;
+    grid-template-columns: 230px 1fr 230px;
+    gap: 24px;
+    align-items: center;
+}
+
+.mission-panel,
+.tip-panel {
+    background: rgba(255, 255, 255, 0.82);
+    border: 3px solid rgba(255, 216, 77, 0.48);
+    border-radius: 26px;
+    padding: 24px;
+    box-shadow: var(--soft-shadow);
+    backdrop-filter: blur(10px);
+}
+
+.mission-panel h2,
+.tip-panel h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.mission-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFF9E6;
+    border-radius: 18px;
+    padding: 12px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.mission-step span {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: #FFEFB0;
+    border-radius: 50%;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+}
+
+.mission-step p {
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.mission-step.active {
+    background: var(--yellow-light);
+}
+
+.mission-step.active p {
+    color: var(--dark);
+}
+
+.difficulty-pill {
+    margin-top: 18px;
+    background: var(--yellow);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 18px;
+    box-shadow: 0 5px 0 var(--yellow-dark);
+}
+
+.memory-card {
+    position: relative;
+    min-height: 560px;
+    padding: 34px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid rgba(255, 216, 77, 0.6);
+    border-radius: 34px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.memory-card::before,
+.memory-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 216, 77, 0.26);
+}
+
+.memory-card::before {
+    width: 280px;
+    height: 280px;
+    right: -110px;
+    top: -110px;
+}
+
+.memory-card::after {
+    width: 200px;
+    height: 200px;
+    left: -80px;
+    bottom: -80px;
+}
+
+.timer-ring {
+    position: relative;
+    z-index: 2;
+    display: inline-grid;
+    place-items: center;
+    width: 145px;
+    height: 145px;
+    margin-bottom: 26px;
+    background:
+            radial-gradient(circle, var(--yellow) 58%, transparent 60%),
+            conic-gradient(var(--orange), var(--yellow), var(--yellow-dark), var(--orange));
+    border-radius: 50%;
+    box-shadow: 0 8px 0 var(--yellow-dark), var(--soft-shadow);
+    animation: timerPulse 1s ease-in-out infinite;
+}
+
+.timer-ring span {
+    font-family: 'Baloo 2', cursive;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.timer-ring strong {
+    font-family: 'Baloo 2', cursive;
+    font-size: 60px;
+    line-height: 0.75;
+}
+
+.timer-warning {
+    animation: warningPulse 0.45s ease-in-out infinite;
+}
+
+.image-stage {
+    position: relative;
+    z-index: 2;
+    width: min(560px, 100%);
+    height: 340px;
+    margin: 0 auto 26px;
+    background:
+            linear-gradient(45deg, rgba(255, 216, 77, 0.08) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(255, 216, 77, 0.08) 25%, transparent 25%),
+            #FFF9E6;
+    background-size: 32px 32px;
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.06);
+    border: 3px dashed rgba(217, 169, 0, 0.45);
+}
+
+.image-stage::before {
+    content: "MEMORISE";
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 15px;
+    background: var(--yellow);
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.image-stage img {
+    max-width: 65%;
+    max-height: 65%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.14));
+    animation: imagePop 0.7s ease both, imageFloat 3.2s ease-in-out infinite;
+}
+
+.progress-bar {
+    position: relative;
+    z-index: 2;
+    width: min(560px, 100%);
+    height: 18px;
+    margin: 0 auto 22px;
+    background: #FFEFB0;
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+#progressFill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--yellow), var(--orange));
+    border-radius: 999px;
+    transition: width 1s linear;
+}
+
+.round-message {
+    position: relative;
+    z-index: 2;
+    font-size: 25px;
+    color: var(--muted);
+}
+
+.tip-panel p {
+    font-size: 21px;
+    line-height: 1.4;
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+.mini-stat {
+    background: #FFF4BD;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.08);
+}
+
+.mini-stat span {
+    display: block;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.mini-stat strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 38px;
+}
+
+.fade-away {
+    animation: fadeAway 0.65s ease forwards !important;
+}
+
+@keyframes timerPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@keyframes warningPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.08);
+    }
+}
+
+@keyframes imagePop {
+    from {
+        opacity: 0;
+        transform: scale(0.82) rotate(-4deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes imageFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+@keyframes fadeAway {
+    to {
+        opacity: 0;
+        transform: scale(0.82) rotate(5deg);
+        filter: blur(10px);
+    }
+}
+
+@media (max-width: 1050px) {
+    .round-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-panel,
+    .tip-panel {
+        width: min(760px, 100%);
+        margin: 0 auto;
+    }
+
+    .mission-panel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .mission-panel h2,
+    .difficulty-pill {
+        grid-column: 1 / -1;
+    }
+
+    .mission-step {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .game-page {
+        width: calc(100% - 24px);
+        margin-top: 36px;
+    }
+
+    .mission-panel {
+        display: block;
+    }
+
+    .mission-step {
+        margin-bottom: 12px;
+    }
+
+    .memory-card {
+        min-height: auto;
+        padding: 26px 18px;
+    }
+
+    .image-stage {
+        height: 270px;
+    }
+
+    .timer-ring {
+        width: 118px;
+        height: 118px;
+    }
+
+    .timer-ring strong {
+        font-size: 48px;
+    }
+
+    .subtitle {
+        font-size: 21px;
+    }
+}

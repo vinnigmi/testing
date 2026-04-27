@@ -1,0 +1,264 @@
+.instructions-page {
+    width: min(1150px, calc(100% - 40px));
+    margin: 56px auto 40px;
+    text-align: center;
+}
+
+.instructions-header {
+    margin-bottom: 42px;
+}
+
+.instructions-header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.guide-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 34px;
+}
+
+.guide-card,
+.info-card,
+.strategy-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 3px solid rgba(255, 216, 77, 0.55);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    padding: 26px;
+    backdrop-filter: blur(10px);
+}
+
+.guide-card {
+    position: relative;
+    transition: 0.25s ease;
+    animation: cardEnter 0.6s ease both;
+}
+
+.guide-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.guide-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.guide-card:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.guide-card:nth-child(4) {
+    animation-delay: 0.35s;
+}
+
+.guide-card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 0 24px 55px rgba(32, 32, 32, 0.18);
+}
+
+.guide-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -28px;
+    width: 34px;
+    height: 14px;
+    background: var(--yellow);
+    clip-path: polygon(0 35%, 70% 35%, 70% 0, 100% 50%, 70% 100%, 70% 65%, 0 65%);
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.guide-number {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: var(--yellow);
+    display: grid;
+    place-items: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 5px 0 var(--yellow-dark);
+}
+
+.guide-card h2,
+.info-card h2,
+.strategy-card h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.guide-card p {
+    font-size: 20px;
+    line-height: 1.35;
+    color: var(--muted);
+}
+
+.strategy-card {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: left;
+    background:
+            linear-gradient(135deg, rgba(255, 216, 77, 0.32), rgba(255, 255, 255, 0.9)),
+            rgba(255, 255, 255, 0.88);
+}
+
+.strategy-card span {
+    display: inline-block;
+    background: var(--yellow);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    color: #755a00;
+    margin-bottom: 10px;
+}
+
+.strategy-card p {
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 34px;
+}
+
+.info-card {
+    text-align: left;
+    transition: 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+.info-card h2 {
+    text-align: center;
+}
+
+.mode-row {
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 2px solid rgba(32, 32, 32, 0.05);
+}
+
+.easy-mode {
+    background: #EFFFF2;
+}
+
+.normal-mode {
+    background: #FFF9E6;
+}
+
+.hard-mode {
+    background: #FFECEC;
+}
+
+.mode-row strong {
+    display: block;
+    font-family: 'Baloo 2', cursive;
+    font-size: 22px;
+}
+
+.mode-row span {
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tool-list span {
+    background: #FFF9E6;
+    border: 2px solid rgba(255, 216, 77, 0.55);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.info-card ul {
+    padding-left: 22px;
+}
+
+.info-card li {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.instructions-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 1000px) {
+    .guide-grid,
+    .info-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-card:not(:last-child)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .instructions-page {
+        width: calc(100% - 24px);
+        margin-top: 34px;
+    }
+
+    .guide-grid,
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+
+    .subtitle {
+        font-size: 21px;
+    }
+
+    .strategy-card {
+        text-align: center;
+    }
+}
